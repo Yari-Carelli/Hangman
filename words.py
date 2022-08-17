@@ -1,4 +1,4 @@
-words = [
+word_list = [
     "aback",
     "abaft",
     "abandoned",
