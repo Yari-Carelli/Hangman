@@ -1,5 +1,6 @@
 import random
 from words import word_list
+from hangman_visual import display_hangman
 
 
 def get_word():
