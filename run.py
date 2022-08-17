@@ -3,21 +3,28 @@ from words import word_list
 from hangman_visual import display_hangman
 
 
+# clear function to clean-up the terminal so things don't get messy
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def get_word():
-    word = random.choice(word_list)
+    word = random.choice(word_list)  # randomly chooses something from the list
     return word.upper()
 
 
 def play(word):
     word_completion = "_" * len(word)
     guessed = False
-    guessed_letters = []
-    guessed_words = []
+    guessed_letters = []  # list that'll hold the letters that the user guessed
+    guessed_words = []  # list that'll hold the words that the user guessed
     tries = 6
     print("Let's play Hangman!")
     print(display_hangman(tries))
     print(word_completion)
     print("\n")
+
+     # getting user input
     while not guessed and tries > 0:
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
@@ -25,7 +32,7 @@ def play(word):
                 print("You already guessed the letter", guess)
             elif guess not in word:
                 print(guess, "is not in the word.")
-                tries -= 1
+                tries -= 1  # decrement the number of tries by 1 when incorrect guess
                 guessed_letters.append(guess)
             else:
                 print("Good job,", guess, "is in the word!")
@@ -47,6 +54,9 @@ def play(word):
             else:
                 guessed = True
                 word_completion = word
+        # end of while loop
+
+        # checks whether the user guessed the word correctly or ran out of tries
         else:
             print("Not a valid guess.")
         print(display_hangman(tries))
@@ -56,3 +66,17 @@ def play(word):
         print("Congrats, you guessed the word! You win!")
     else:
         print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+
+# code to run the game once
+def main():
+    word = get_word()
+    play(word)
+
+# code to give the user the option to play again
+    while input("Play Again? (Y/N) ").upper() == "Y":
+        word = get_word()
+        play(word)
+
+
+if __name__ == "__main__":
+    main()
