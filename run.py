@@ -1,9 +1,11 @@
 import random
 from words import word_list
 from hangman_visual import display_hangman
+import os
+from os import system, name
 
 
-# clear function to clean-up the terminal so things don't get messy
+# function to clean-up the terminal so things don't get messy.
 def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
