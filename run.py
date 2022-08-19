@@ -1,14 +1,8 @@
 import random
 from words import word_list
 from hangman_visual import display_hangman
-import os
-from os import system, name
 import time
 
-
-# function to clean-up the terminal so things don't get messy.
-def clear():
-    os.system("cls" if os.name == "nt" else "clear")
 
 # Initial Steps to invite in the game:
 print("\nWelcome to Hangman game by Yari Carelli\n")
@@ -16,7 +10,7 @@ name = input("Enter your name: ")
 print("Hello " + name + "! Best of Luck!")
 time.sleep(2)
 print("The game is about to start!\n Let's play Hangman!")
-time.sleep(3)
+time.sleep(2)
 
 def get_word():
     word = random.choice(word_list)  # randomly chooses something from the list
@@ -81,17 +75,13 @@ def play(word):
 def main():
     word = get_word()
     play(word)
-
-# A loop to re-execute the game when the first round ends:
-def play_loop():
-    global play_game
-    play_game = input("Do You want to play again? y = yes, n = no \n")
-    while play_game not in ["y", "n","Y","N"]:
-        play_game = input("Do You want to play again? y = yes, n = no \n")
-    if play_game == "y":
-        clear()
+# loop to re-execute the game when the first round ends:
+    play_again = input("Do You want to play again? y = yes, n = no \n")
+    while play_again not in ["y","n"]:
+        play_again = input("Do You want to play again? y = yes, n = no \n")
+    if play_again == "y":
         main()
-    elif play_game == "n":
+    elif play_again == "n":
         print("Thanks For Playing! We expect you back again!")
         exit()
         
