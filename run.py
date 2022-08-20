@@ -12,6 +12,7 @@ time.sleep(2)
 print("The game is about to start!\n Let's play Hangman!")
 time.sleep(2)
 
+
 def get_word():
     word = random.choice(word_list)  # randomly chooses something from the list
     return word.upper()
@@ -23,12 +24,11 @@ def play(word):
     guessed_letters = []  # list that'll hold the letters that the user guessed
     guessed_words = []  # list that'll hold the words that the user guessed
     tries = 6
-   
     print(display_hangman(tries))
     print(word_completion)
     print("\n")
 
-     # getting user input
+    # getting user input
     while not guessed and tries > 0:
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
@@ -36,13 +36,15 @@ def play(word):
                 print("You already guessed the letter", guess)
             elif guess not in word:
                 print(guess, "is not in the word.")
-                tries -= 1  # decrement the number of tries by 1 when incorrect guess
+                # decrement the number of tries by 1 when incorrect guess
+                tries -= 1
                 guessed_letters.append(guess)
             else:
                 print("Good job,", guess, "is in the word!")
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
-                indices = [i for i, letter in enumerate(word) if letter == guess]
+                indices = [
+                    i for i, letter in enumerate(word) if letter == guess]
                 for index in indices:
                     word_as_list[index] = guess
                 word_completion = "".join(word_as_list)
@@ -60,7 +62,7 @@ def play(word):
                 word_completion = word
         # end of while loop
 
-        # checks whether the user guessed the word correctly or ran out of tries
+# checks whether the user guessed the word correctly or ran out of tries
         else:
             print("Not a valid guess.")
         print(display_hangman(tries))
@@ -69,7 +71,9 @@ def play(word):
     if guessed:
         print("Congrats, you guessed the word! You win!")
     else:
-        print("Sorry, you ran out of tries. The word was " + word + ". Maybe next time!")
+        print("Sorry, you ran out of tries. The word was " + word + ".")
+        print("Maybe next time!")
+
 
 # code to run the game once
 def main():
@@ -77,14 +81,14 @@ def main():
     play(word)
 # loop to re-execute the game when the first round ends:
     play_again = input("Do You want to play again? y = yes, n = no \n")
-    while play_again not in ["y","n"]:
+    while play_again not in ["y", "n"]:
         play_again = input("Do You want to play again? y = yes, n = no \n")
     if play_again == "y":
         main()
     elif play_again == "n":
         print("Thanks For Playing! We expect you back again!")
         exit()
-        
+
 
 if __name__ == "__main__":
     main()
