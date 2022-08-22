@@ -4,7 +4,7 @@ from hangman_visual import display_hangman
 import time
 
 
-# Initial Steps to invite in the game:
+# initial steps to invite in the game
 print("\nWelcome to Hangman game by Yari Carelli\n")
 name = input("Enter your name: ")
 print("Hello " + name + "! Best of Luck!")
@@ -14,7 +14,8 @@ time.sleep(2)
 
 
 def get_word():
-    word = random.choice(word_list)  # randomly chooses something from the list
+    # this function returns a random string from the passed list of strings
+    word = random.choice(word_list)
     return word.upper()
 
 
@@ -29,14 +30,14 @@ def play(word):
     print("\n")
 
     # getting user input
-    while not guessed and tries > 0:
+    while not guessed and tries > 0:  # conditions for the while loop
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
                 print("You already guessed the letter", guess)
             elif guess not in word:
                 print(guess, "is not in the word.")
-                # decrement the number of tries by 1 when incorrect guess
+                # decrements the number of tries by 1 when guess is incorrect
                 tries -= 1
                 guessed_letters.append(guess)
             else:
@@ -79,7 +80,7 @@ def play(word):
 def main():
     word = get_word()
     play(word)
-# loop to re-execute the game when the first round ends:
+# loop to re-executes the game when the first round ends
     play_again = input("Do You want to play again? y = yes, n = no \n")
     while play_again not in ["y", "n"]:
         play_again = input("Do You want to play again? y = yes, n = no \n")
