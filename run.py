@@ -2,12 +2,17 @@ import random
 from words import word_list
 from hangman_visual import display_hangman
 import time
+import os
 
 
+# function to clear the terminal: it uses
+# the 'cls' statement if on Windows, otherwise (Linux or Mac)
+# it uses the 'clear' statement
+def clear():
+    os.system('cls||clear')
+
+# hangman logo
 def logo():
-    """
-    Hangman logo
-    """
     print("""
                  _
                 | |
@@ -21,12 +26,14 @@ def logo():
 
 
 # initial steps to invite in the game
+logo()
 print("\nWelcome to Hangman game by Yari Carelli\n")
 name = input("Enter your name: ")
 print("Hello " + name + "! Best of Luck!")
 time.sleep(2)
 print("The game is about to start!\n Let's play Hangman!")
 time.sleep(2)
+clear()
 
 
 def get_word():
@@ -50,13 +57,16 @@ def play(word):
         guess = input("Please guess a letter or word: ").upper()
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
+                clear()
                 print("You already guessed the letter", guess)
             elif guess not in word:
+                clear()
                 print(guess, "is not in the word.")
                 # decrements the number of tries by 1 when guess is incorrect
                 tries -= 1
                 guessed_letters.append(guess)
             else:
+                clear()
                 print("Good job,", guess, "is in the word!")
                 guessed_letters.append(guess)
                 word_as_list = list(word_completion)
@@ -69,8 +79,10 @@ def play(word):
                     guessed = True
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
+                clear()
                 print("You already guessed the word", guess)
             elif guess != word:
+                clear()
                 print(guess, "is not the word.")
                 tries -= 1
                 guessed_words.append(guess)
@@ -81,13 +93,16 @@ def play(word):
 
 # checks whether the user guessed the word correctly or ran out of tries
         else:
+            clear()
             print("Not a valid guess.")
         print(display_hangman(tries))
         print(word_completion)
         print("\n")
     if guessed:
+        clear()
         print("Congrats, you guessed the word! You win!")
     else:
+        clear()
         print("Sorry, you ran out of tries. The word was " + word + ".")
         print("Maybe next time!")
 
@@ -101,8 +116,11 @@ def main():
     while play_again not in ["y", "n"]:
         play_again = input("Do You want to play again? y = yes, n = no \n")
     if play_again == "y":
+        clear()
+        logo()
         main()
     elif play_again == "n":
+        clear()
         print("Thanks For Playing! We expect you back again!")
         exit()
 
