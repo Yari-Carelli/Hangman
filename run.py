@@ -4,6 +4,22 @@ from hangman_visual import display_hangman
 import time
 
 
+def logo():
+    """
+    Hangman logo
+    """
+    print("""
+                 _
+                | |
+                | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
+                | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \\
+                | | | | (_| | | | | (_| | | | | | | (_| | | | |
+                |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                                    __/ |
+                                   |___/
+                   """)
+
+
 # initial steps to invite in the game
 print("\nWelcome to Hangman game by Yari Carelli\n")
 name = input("Enter your name: ")
