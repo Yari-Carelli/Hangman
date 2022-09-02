@@ -13,7 +13,9 @@ def clear():
 
 # hangman logo
 def logo():
-    print("""
+    print("Welcome to\n")
+    print(
+    """
                  _
                 | |
                 | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
@@ -22,18 +24,102 @@ def logo():
                 |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                                     __/ |
                                    |___/
-                   """)
+    by Yari Carelli
+    """
+    )
 
+
+def game_menu():
+    """
+    Give player 3 different options to choose from: play, rules,
+    exit
+    """
+    print("\n")
+    print("Press 1 - 3 to choose from below options:")
+    print("1. Play \n2. Hangman Rules \n3. Exit")
+
+    while True:
+        game_choice = input("What would you like to do? \n")
+        print("\n")
+
+        if game_choice == "1":
+            print("Great!\n")
+            clear()
+            break
+        elif game_choice == "2":
+            print("""
+            To play hangman is very simple. The aim of the hangman game 
+            is for a player to guess all the letter in a randomly selected 
+            hidden word in as few guesses as possible to stop the hangman 
+            from being hanged. When a player starts a new game, the word is 
+            displayed to the player as a series of underscores to represent 
+            the hidden letters of the word. The player selects letters they 
+            think are in the word. When they select a letter that is in the word, 
+            all instances of that letter are displayed in place of the underscores.
+            When the player selects a letter that is not in the word, it brings 
+            the hangman closer to his end, as shown in the hangman image.
+            If the player completes the word by selecting all its letters before 
+            the hangman is hanged, then the player has succeeded.
+            However if the hangman dies before the player completes the word, then 
+            the player has failed. \n
+            """) 
+            game_menu()
+        elif game_choice == "3":
+            clear()
+            print("Sorry to see you go. Come back soon!")
+            exit()
+        else:
+            clear()
+            print("Invalid input, please choose between 1 - 3")
+            print("1. Play \n2. Hangman Rules \n3. Exit")
 
 # initial steps to invite in the game
 logo()
-print("\nWelcome to Hangman game by Yari Carelli\n")
-name = input("Enter your name: ")
-print("Hello " + name + "! Best of Luck!")
-time.sleep(2)
-print("The game is about to start!\n Let's play Hangman!")
-time.sleep(2)
-clear()
+game_menu()
+
+
+def get_player_name():
+    """
+    Get player to enter their chosen name. The request will only ends
+    when a valid input is received.
+    """
+    while True:
+        print("Next choose a user name!\n")
+        print("Characters A-Z, a-z, and 0-9 are permitted.")
+        print("Maximum of 8 characters.")
+        print("Any white space will be removed.\n")
+        
+        name = input("Enter your name: ")
+        
+        if check_player_name(player_name):
+            print("\n")
+            print("Hello " + name + "! Best of Luck!")
+            time.sleep(2)
+            print("The game is about to start!\n Let's play Hangman!")
+            time.sleep(2)
+            clear()
+
+
+def check_player_name(player_name):
+    """
+    Validate user's input if the username provided is valid.
+    It will raise ValueError if the lengh is more than 8 character,
+    or no name was entered, or anything other than letters and
+    numbers were used.
+    """
+    try:
+        if not player_name:
+            raise ValueError("Please enter a player name!")
+        if len(player_name) > 8:
+            raise ValueError("Player name too long")
+        if not player_name.isalnum():
+            raise ValueError("Only letters and digits are permitted")
+    except ValueError as e:
+        print(f"Invalid data: {e}! Please try again.\n")
+        return False
+        clear()
+
+    return True
 
 
 def get_word():
@@ -117,7 +203,6 @@ def main():
         play_again = input("Do You want to play again? y = yes, n = no \n")
     if play_again == "y":
         clear()
-        logo()
         main()
     elif play_again == "n":
         clear()
