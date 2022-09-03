@@ -1,6 +1,34 @@
-# Hangman
+# **[Hangman](https://hangman-yc.herokuapp.com/)**
 
-##  __Overview__
+<img src="assets/images/responsive.png" width="700">
+
+- [**Overview**](#--overview--)
+- [**Features**](#--features--)
+  * [Existing Features:](#existing-features-)
+    + [**Home page**:](#--home-page---)
+    + [Menu Item 1 **Play**](#menu-item-1---play--)
+    + [Menu Item 2 **Hangman Rules**](#menu-item-2---rules--)
+    + [Menu Item 3 **Restart**](#menu-item-3---exit--)
+  * [Features To Implement:](#features-to-implement-)
+    + [Feature 1: ****](#--)
+    + [Feature 2: ****](#--)
+    + [Feature 3: **Chatbox**](#game----chatbox--)
+- [**Game Logic**](#--game-logic--)
+  * [Flowchart](#flowchart)
+- [**Data Model**](#--data-model--)
+- [**Technology Used**](#--technology-used--)
+  * [**Language**](#--language--)
+  * [**Tools**](#--tools--)
+- [**Testing**](#--testing--)
+  * [**Code Validation on PEP8**](#--code-validation-on-pep8--)
+  * [**Bugs**](#--bugs--)
+    + [*Fixed Bugs*](#-fixed-bugs-)
+    + [*Unfixed Bugs*](#-unfixed-bugs-)
+- [**Deployment**](#--deployment--)
+- [**Credits**](#--credits--)
+- [**Acknowledgments**](#--acknowledgments--)
+
+##  **Overview**
 
 Hangman is an electronic version of the popular word-guessing game, that runs in a terminal. The objective of the game is to find the word by guessing letters.
 The word to guess is represented by a row of dashes representing each letter of the word. If the guessing player suggests a letter which occurs in the word, the program writes it in all its correct positions. If the suggested letter does not occur in the word, the program draws one element of a hanged stick figure as a tally mark.
@@ -9,13 +37,22 @@ The player guessing the word may, at any time, attempt to guess the whole word. 
 
 The live version of the website can be found by clicking [here](https://hangman-yc.herokuapp.com/).
 
+------
 
-##  __Features__
+##  **Features**
+### Existing Features:
+#### **Home page**:
 
-The game features a welcome message along with the name input:
+<p>Once you are on the **[live site](https://hangman-yc.herokuapp.com/)** first thing you will notice is the welcome message with the title of “hangman” ASCII in star wars style, followed by the game menu with 3 options, allowing the player to choose between start the game, view the game's rules, and exit the game.</p>
 
-![Welcome message and name input:](assets/images/welcome.png)
+<img src="assets/images/welcome_page.png" width="700">
 
+<br>
+
+#### Menu Item 1 **Play**
+<p>When the player chooses the Play option, the system will ask for an input of the chosen player name. With specified information about what you can use in the player name and the max number of characters. If any character is not a letter or digit, or the length is more than 8 characters, the system will detect it, and trigger an error message to be displayed. The system will keep requesting the player name until a valid answer is received, then the quiz will start.</p>
+
+<img src="assets/screenshots/live-menu1.png" width="800">
 Upon entering a name, the program greets the user and wishes them good luck; finally, the word is printed and its length is declared:
 
 ![Game start screenshot:](assets/images/game_start.png)
@@ -54,6 +91,7 @@ The player can also choose to inert a whole word:
 
 ![Word guess screenshot:](assets/images/guess_word.png)
 
+------
 
 ## __Features to implement__
 

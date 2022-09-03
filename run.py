@@ -77,49 +77,19 @@ def game_menu():
 logo()
 game_menu()
 
-
 def get_player_name():
     """
-    Get player to enter their chosen name. The request will only ends
-    when a valid input is received.
+    Get player to enter their chosen name.
     """
     while True:
-        print("Next choose a user name!\n")
-        print("Characters A-Z, a-z, and 0-9 are permitted.")
-        print("Maximum of 8 characters.")
-        print("Any white space will be removed.\n")
-        
         name = input("Enter your name: ")
-        
-        if check_player_name(player_name):
-            print("\n")
-            print("Hello " + name + "! Best of Luck!")
-            time.sleep(2)
-            print("The game is about to start!\n Let's play Hangman!")
-            time.sleep(2)
-            clear()
-
-
-def check_player_name(player_name):
-    """
-    Validate user's input if the username provided is valid.
-    It will raise ValueError if the lengh is more than 8 character,
-    or no name was entered, or anything other than letters and
-    numbers were used.
-    """
-    try:
-        if not player_name:
-            raise ValueError("Please enter a player name!")
-        if len(player_name) > 8:
-            raise ValueError("Player name too long")
-        if not player_name.isalnum():
-            raise ValueError("Only letters and digits are permitted")
-    except ValueError as e:
-        print(f"Invalid data: {e}! Please try again.\n")
-        return False
+        print(f"Hello {name}, the game is about to start!\n")
+        time.sleep(2)
+        print("Let's play Hangman! Best of Luck!")
+        time.sleep(2)
         clear()
-
-    return True
+        break
+    
 
 
 def get_word():
@@ -195,6 +165,7 @@ def play(word):
 
 # code to run the game once
 def main():
+    get_player_name()
     word = get_word()
     play(word)
 # loop to re-executes the game when the first round ends
@@ -203,7 +174,8 @@ def main():
         play_again = input("Do You want to play again? y = yes, n = no \n")
     if play_again == "y":
         clear()
-        main()
+        word = get_word()
+        play(word)
     elif play_again == "n":
         clear()
         print("Thanks For Playing! We expect you back again!")
