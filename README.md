@@ -1,6 +1,6 @@
 # **[Hangman](https://hangman-yc.herokuapp.com/)**
 
-<img src="assets/images/responsive.png" width="700">
+<img src="assets/images/mock_up.png" width="700">
 
 - [**Overview**](#--overview--)
 - [**Features**](#--features--)
@@ -8,22 +8,20 @@
     + [**Home page**:](#--home-page---)
     + [Menu Item 1 **Play**](#menu-item-1---play--)
     + [Menu Item 2 **Hangman Rules**](#menu-item-2---rules--)
-    + [Menu Item 3 **Restart**](#menu-item-3---exit--)
+    + [Menu Item 3 **Exit**](#menu-item-3---exit--)
   * [Features To Implement:](#features-to-implement-)
     + [Feature 1: ****](#--)
     + [Feature 2: ****](#--)
-    + [Feature 3: **Chatbox**](#game----chatbox--)
+    + [Feature 3: ****](#--)
 - [**Game Logic**](#--game-logic--)
   * [Flowchart](#flowchart)
 - [**Data Model**](#--data-model--)
-- [**Technology Used**](#--technology-used--)
+- [**Technologies Used**](#--technologies-used--)
   * [**Language**](#--language--)
   * [**Tools**](#--tools--)
 - [**Testing**](#--testing--)
   * [**Code Validation on PEP8**](#--code-validation-on-pep8--)
   * [**Bugs**](#--bugs--)
-    + [*Fixed Bugs*](#-fixed-bugs-)
-    + [*Unfixed Bugs*](#-unfixed-bugs-)
 - [**Deployment**](#--deployment--)
 - [**Credits**](#--credits--)
 - [**Acknowledgments**](#--acknowledgments--)
@@ -49,47 +47,60 @@ The live version of the website can be found by clicking [here](https://hangman-
 
 <br>
 
-#### Menu Item 1 **Play**
-<p>When the player chooses the Play option, the system will ask for an input of the chosen player name. With specified information about what you can use in the player name and the max number of characters. If any character is not a letter or digit, or the length is more than 8 characters, the system will detect it, and trigger an error message to be displayed. The system will keep requesting the player name until a valid answer is received, then the quiz will start.</p>
+#### **Menu Item 1:** **Play**
+<p>When the player chooses the Play option, the system will ask the user to enter a name.</p>
 
-<img src="assets/screenshots/live-menu1.png" width="800">
-Upon entering a name, the program greets the user and wishes them good luck; finally, the word is printed and its length is declared:
+<img src="assets/images/png" width="700">
 
-![Game start screenshot:](assets/images/game_start.png)
+Upon entering a name, the program greets the user and wishes them good luck; finally, the word is printed and its length is declared.
 
-Once the user guesses a letter, if the guessed letter is in the word, the program prints a message to inform them and writes the letter in all its correct positions:
+<img src="assets/images/png" width="700">
 
-![Letter guessed is in word:](assets/images/letter_in_word.png)
+Once the user guesses a letter, if the guessed letter is in the word, the program prints a message to inform them and writes the letter in all its correct positions.
 
-If the guessed letter is not in the word, the program prints a message to inform them and draws one element of the hangman visual:
+<img src="assets/images/png" width="700">
 
-![Letter guessed is not in word:](assets/images/letter_not_in_word.png)
+If the guessed letter is not in the word, the program prints a message to inform them and draws one element of the hangman visual.
 
-If the user guesses a letter that they have already guessed, the program prints a message to inform them, while asking them to make a different guess:
+<img src="assets/images/png" width="700">
 
-![Letter has already been guessed:](assets/images/letter_already_guessed.png)
+If the user guesses a letter that they have already guessed, the program prints a message to inform them, while asking them to make a different guess.
+
+<img src="assets/images/png" width="700">
 
 Upon finishing the game, either winning or losing, the user will have the choice as to whether or not play again.
 
-If the user runs out of tries, the game is over and the program reveals the secret word; a message to ask the user to play again is also printed:
+If the user runs out of tries, the game is over and the program reveals the secret word; a message to ask the user to play again is also printed.
 
-![Game over screenshot:](assets/images/game_over.png)
+<img src="assets/images/png" width="700">
 
-If the user guesses all the letters correctly, they win the game; a message to ask the user to play again is printed:
+If the user guesses all the letters correctly, they win the game; a message to ask the user to play again is printed.
 
-![Game won screenshot:](assets/images/win_game.png)
+<img src="assets/images/png" width="700">
 
-Upon the play again message, if the user inputs y, a new secret word is printed and its length is declared:
+Upon the play again message, if the user inputs y, a new secret word is printed and its length is declared.
 
-![Play again screenshot:](assets/images/play_again_yes.png)
+<img src="assets/images/png" width="700">
 
-Upon the play again message, if the user types n, a thank you and goodbye message is printed and the game ends:
+Upon the play again message, if the user types n, a thank you and goodbye message is printed and the game ends.
 
-![End game screenshot:](assets/images/play_again_no.png)
+<img src="assets/images/png" width="700">
 
-The player can also choose to inert a whole word:
+The player can also choose to inert a whole word rather than a single letter.
 
-![Word guess screenshot:](assets/images/guess_word.png)
+<img src="assets/images/png" width="700">
+
+#### **Menu Item 2:** **Game Rules**
+<p>When the player chooses the Game Rules option, the system will display a text containing the instructions to play this interactive version of the hangman game, and right below that, the game menu will be displayed once again.</p>
+
+<img src="assets/images/png" width="700">
+
+#### **Menu Item 3:** **Exit**
+<p>When the player chooses the Exit option, the system will display a goodbye message, and end. You need to click on the “Run Program” button on the top left of the screen to reactivate the program.</p>
+
+<img src="assets/images/png" width="700">
+
+<br>
 
 ------
 
@@ -104,61 +115,90 @@ There are several ways that the game could be improved, and more functionalities
 * Another alternative is to give the definition of the word; this can be used to facilitate the learning of a foreign language.
 
 
-## __Flowchart__
+## **Game Logic**
+### **Flowchart**
 
-* This flowchart was created with lucidchart.com, in order to demonstrate how the program would function:
+* This flowchart was created with lucidchart.com, in order to demonstrate how the program would function.
 
-![Flowchart screenshot](assets/images/hangman_flowchart.png)
+<img src="assets/images/hangman_flowchart.png" width="500">
 
+<br>
 
-## __Technologies Used__
+------
 
-  * Python is the language that the game was coded in.
-  * The application is deployed on Heroku.
-  * The repository is hosted on GitHub.
-  * Gitpod was the workspace used to code and build the content of the website, which would then be committed to GitHub.
-  * Git was used for version control.
+## **Technologies Used**
+### **Language**
+This is a command-line application built purely using **python** as the main programming language.
 
+### **Tools**
+- [Github](https://github.com/) for store and version control of the code
 
-## __Testing__
+- [Gitpod](https://gitpod.io/workspaces) for editing code
 
-* Both the run.py file and the words.py file have passed through the PEP8 Online Validator without any issues:
+- [Heroku](https://heroku.com/) for deployment
 
-![Screenshot of run.py file successfully passing through validation:](assets/images/validator%20run.py.png)
-![Screenshot of words.py file successfully passing through validation:](assets/images/validator%20words.py.png)
+- [Lucidhart](https://lucidhart.com/) for creating flowchart
 
+- [Patorjk.com](https://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Type%20Something%20) for creating the cool looking game title at the beginning of the game
+
+- [Amiresponsive.com](https://ui.dev/amiresponsive) for generating the mock up
+
+<br>
+
+------
+
+## **Testing**
+### **Code Validation on PEP8**
+* Both the run.py file and the words.py file have passed through the PEP8 Online Validator without any issues.
+
+run.py
+
+<img src="assets/images/pep8-run-py.png" width="700">
+
+words.py
+
+<img src="assets/images/pep8-words.png" width="700">
+
+<br>
+
+------
 
 ## __Bugs__
 
 * To the best of my knowledge, no bugs exist in the website in its current state.
 
+<br>
 
-##  __Deployment__
+------
 
-* This application has been deployed to Heroku. The deployment process is described below:
+## **Deployment**
+This application has been deployed to Heroku. The deployment process is described below:
 
-* Log in to your Heroku account and, once on the dashboard, click on the new button in the top right-hand corner, then click 'create new app'
+- Login on the [Heroku](https://id.heroku.com/login) website, [create](https://signup.heroku.com/login) your free account if you don’t have one already.
 
-* You must now choose a name for your app, which must be unique, and the appropriate region.
+- On your dashboard, click on the **New** button on the top right-hand corner, and then click on **Create new app**.
 
-* On the next page, you will see the Github logo. As my repository is stored there, I connected it to my github account.
+- Next, type in your project name, which has to be unique, then choose your region and click on **Create App**.
 
-* You must then type in the name of your repository in order for it to be connected.
+- You will come to the next screen, and we will set the **Settings** first and then **Deploy**.
 
-* Once that is done, click on the settings tab at the top.
+- In the **Settings**, Scroll down until you reach **Config Vars**, and click on the button **Reveal Config Vars**.
 
-* Scroll down until you reach config vars and click on the button 'Reveal Config Vars'.
+- In the **KEY** section type **PORT** (it MUST be in capital letters) and in the **VALUE** section **8000**.
 
-* In the key section type 'PORT' (it MUST be in capital letters) and in the value section 8000.
+- Then you will scroll down and add two buildpacks in the **Settings**, first **Python** and second **Node.js**. Be aware of the order of these two, it has to be exactly like this (Python first and Node.js second), otherwise it will cause problems when we deploy the project.
 
-* Next, select buildpacks and add python and nodejs (they must be added in this order).
+- That's all the settings we need to do. Now let's go to the **Deploy** tab. In the deployment method, I connected my Github account, for this project. You must type in the name of your repository in order for it to be connected.
 
-* Now, go back to the deploy tab and scroll down until you see this button. Click 'Deploy Branch'.
+- At the bottom of the page, choose **Manual deploy**, and then click on the **Deploy Branch** button.
 
-* You should see the terminal working while it deploys.
+- The deployment process will start and will take a few minutes.
 
-* If everything has been successful, by clicking 'View' you will be able to see the app running in a new tab.
+- When the deployment has completed, it will display the message **"Your app was successfully deployed"** with a **View** button below the message, which will take you to your deployed site by clicking on it.
 
+<br>
+
+------
 
 ## __Local Deployment__
 
@@ -170,9 +210,25 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Yari-Carelli/Hangman)
 
+<br>
 
-## __Acknowledgements__
+------
 
+## **Credits**
+
+- Tutor support from Code Institute for helping me out when I got stuck.
+
+- [Stackoverflow](https://stackoverflow.com/) for researching a list of things.
+
+- This tutorial by Kylie Ying was useful to understand the thought process of the program. Jump to minute **24:25** for **Hangman**: (https://www.youtube.com/watch?v=8ext9G7xspg&t=1465s)
+
+Small tip: when deciding to follow a tutorial, go to the end of the tutorial and see the final output, then try coding the whole thing by yourself. It forces you to build the thing from scratch, and when you get stuck, just rewind and see how it they build it.
+
+<br>
+
+------
+
+## **Acknowledgments**
 * I would like to acknowledge the help provided to me by various people and websites, who have rendered the task of making this website easier, and in some cases, possible. In no particular order, I would like to thank:
    * w3schools.com, whose tutorials on Python were a frequent reference for all matter of questions both large and small;
    * stackoverflow.com, whose forums provided me with many helpful answers to problems I was experiencing when writing my code, and offered good examples for me to compare my code against;
