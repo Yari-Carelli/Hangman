@@ -43,7 +43,6 @@ def game_menu():
         print("\n")
 
         if game_choice == "1":
-            print("Great!\n")
             clear()
             break
         elif game_choice == "2":
@@ -82,6 +81,8 @@ def get_player_name():
     Get player to enter their chosen name.
     """
     while True:
+        print("Great!\n")
+        time.sleep(1)
         name = input("Enter your name: ")
         print(f"Hello {name}, the game is about to start!\n")
         time.sleep(2)
