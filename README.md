@@ -3,16 +3,14 @@
 <img src="assets/images/mock_up.png" width="700">
 
 - [**Overview**](#--overview--)
+- [**User Stories**](#--user-stories--)
 - [**Features**](#--features--)
   * [Existing Features:](#existing-features-)
-    + [**Home page**:](#--home-page---)
-    + [Menu Item 1 **Play**](#menu-item-1---play--)
-    + [Menu Item 2 **How To Play**](#menu-item-2---rules--)
-    + [Menu Item 3 **Exit**](#menu-item-3---exit--)
+    + [Home page:](#--home-page--)
+    + [Menu Item 1: Play](#menu-item-1---play--)
+    + [Menu Item 2: How To Play](#menu-item-2---rules--)
+    + [Menu Item 3: Exit](#menu-item-3---exit--)
   * [Features To Implement:](#features-to-implement-)
-    + [Feature 1: ****](#--)
-    + [Feature 2: ****](#--)
-    + [Feature 3: ****](#--)
 - [**Game Logic**](#--game-logic--)
   * [Flowchart](#flowchart)
 - [**Data Model**](#--data-model--)
@@ -36,6 +34,26 @@ The player guessing the word may, at any time, attempt to guess the whole word. 
 The live version of the website can be found by clicking [here](https://hangman-yc.herokuapp.com/).
 
 ------
+##  **User Stories**
+
+#### **Main menu**:
+- As a user, I should be able to run the program.
+- As a user, when running the program, I expect to be invited in the game by displaying a welcome message, the Hangman logo and, below that, the main menu with the three options to choose upon.
+- As a user, I should be able to pick one of the three options of the menu.
+- As a user, I expect to be repeatedly presented with the main menu and asked to choose among the available options, if I input is anyhting other than 1, 2 or 3.
+- As a user, I should be able to start the game if I input 1, and then to enter a name before actually starting the game.
+- As a user, I should be able to view the game rules if I input 2, and be redirected to the main menu if I input r; I expect to be repeatedly asked to input r if I input a different character.
+- As a user, I should be able to exit the program if I input 3.
+
+#### **Play the Game**:
+- As a user, I should be able to input a letter or a word as a guess.
+- As a user, I should be able to see the secret word change as the letters are guessed correctly.
+- As a user, I should be able to see the parts of the visual hangman drawn as incorrect guesses are made.
+
+#### **Ending or Restarting the Game**:
+- As a user, I should be able to play the game again either I win or lose. To do so, I expect the program to present me with a yes/no binary decision.
+- As a user, upon inputting y, I should be able to see a new secret word displayed by the program, and guess a letter or word.
+- As a user, I should be able to exit the game upon inputting n. 
 
 ##  **Features**
 ### Existing Features:
@@ -124,8 +142,15 @@ At the moment only the most basic hangman features have been implemented. But th
 ## **Game Logic**
 ### **Flowchart**
 
-* This flowchart was created with lucidchart.com, in order to demonstrate how the program would function.
-
+* This flowchart was created with https://lucidhart.com/, in order to demonstrate how the program would function.
+There is no one correct way to make a flowchart; as long as you understand your flowchart, it will be helpful when you start coding. Always begin your flowchart with a **Start** and an **End** box.
+This flowchart simply shows what happens when you play Hangman.
+First, the computer thinks of a secret word. Then the player guesses letters.
+The program needs to check whether the guessed letter is in the secret word.
+There are two possibilities: the letter is either in the word or not. If the letter is in the secret word, check wheter the player has guessed all the letters and won the game. If the letter is not in the secret word, check whether the hanging man is complete and the player has lost.
+Once the player has won or lost, the program asks them if they want to play again with a new secret word. If the player doesn't want to play again, the program ends. Otherwise, the program continues and thinks up a new secret word.
+The player doesn't guess a letter just once; they keep guessing letters until they win or lose. The dashed arrows in the flowchart show the player can guess again. What if the player guesses the same letter again? Rather than counting this letter again, allow them to guess a different letter.
+If the player guesses the same letter twice, the flowchart leads back to the 'Guess a letter' box.
 <img src="assets/images/hangman_flowchart.png" width="500">
 
 <br>
@@ -154,6 +179,9 @@ This is a command-line application built purely using **python** as the main pro
 ------
 
 ## **Testing**
+
+### **Test Cases**
+
 ### **Code Validation on PEP8**
 * Both the run.py file and the words.py file have passed through the PEP8 Online Validator without any issues.
 
@@ -207,6 +235,14 @@ This application has been deployed to Heroku. The deployment process is describe
 ------
 
 ## __Local Deployment__
+
+Instructions to run the program from the Terminal or Command Prompt:
+- Open the repository in Gitpod by clicking on the **green button** on the top right-hand of the screen:
+<img src="assets/images/gitpod.png" width="700">
+
+- To start, you need to make sure the command line application you are using has access to your Python installation. To do this, open the command prompt, type **python** and press ‘Enter’. You should see a message that documents the Python version that is being used followed by >>>, which indicates the next code you type will be executed by the Python interpreter.
+- All you need to do is type python3 followed by the script name (run.py): **python3 run.py**
+<img src="assets/images/terminal.png" width="700"> 
 
 If you would like to make a clone of this repository, you can type the following command in your IDE terminal:
 
