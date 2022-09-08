@@ -5,28 +5,41 @@ import time
 import os
 
 
+class style:
+    BLUE = '\033[94m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    RED = '\033[91m'
+    BOLD = '\033[1m'
+    END = '\033[0m'
+
+
 # function to clear the terminal: it uses
 # the 'cls' statement if on Windows, otherwise (Linux or Mac)
 # it uses the 'clear' statement
 def clear():
     os.system('cls||clear')
 
-# hangman logo
+
 def logo():
-    print("Welcome to\n")
+    """
+    Prints the Hangman logo for the game
+    """
+    
     print(
-    """
-                 _
-                | |
-                | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
-                | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_  \\
-                | | | | (_| | | | | (_| | | | | | | (_| | | | |
-                |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                                    __/ |
-                                   |___/
+        style.BLUE + 
+        """
+    Welcome to\n
+                                                            +---+
+.-. .-.  .--.  .-. .-. .---. .-.   .-.  .--.  .-. .-.       |   |
+| {_} | / {} \ |  `| |/   __}|  `.'  | / {} \ |  `| |       O   |
+| { } |/  /\  \| |\  |\  {_ }| |\ /| |/  /\  \| |\  |      /|\  |
+`-' `-'`-'  `-'`-' `-' `---' `-' ` `-'`-'  `-'`-' `-'      / \  |
+                                                                |  
+                                                         =========                                   
     by Yari Carelli
-    """
-    )
+    """ + style.END)
+    
 
 
 def game_menu():
@@ -35,42 +48,65 @@ def game_menu():
     exit
     """
     print("\n")
-    print("Press 1 - 3 to choose from below options:")
-    print("1. Play \n2. Hangman Rules \n3. Exit")
-
+    print("Press 1 - 3 to choose from below options:\n".center(60))
+    print("1. Play".center(60))
+    print("2. How To Play".center(60))
+    print("3. Exit".center(60))
+    print("\n")
     while True:
-        game_choice = input("What would you like to do? \n")
+        game_choice = input("What would you like to do?\n".center(60))
         print("\n")
 
         if game_choice == "1":
             clear()
             break
         elif game_choice == "2":
-            print("""
-            To play hangman is very simple. The aim of the hangman game 
-            is for a player to guess all the letter in a randomly selected 
-            hidden word in as few guesses as possible to stop the hangman 
-            from being hanged. When a player starts a new game, the word is 
-            displayed to the player as a series of underscores to represent 
-            the hidden letters of the word. The player selects letters they 
-            think are in the word. When they select a letter that is in the word, 
-            all instances of that letter are displayed in place of the underscores.
-            When the player selects a letter that is not in the word, it brings 
-            the hangman closer to his end, as shown in the hangman image.
-            If the player completes the word by selecting all its letters before 
-            the hangman is hanged, then the player has succeeded.
-            However if the hangman dies before the player completes the word, then 
-            the player has failed. \n
-            """) 
-            game_menu()
+            clear()
+            print(
+                style.YELLOW +
+                """
+              +--HOW TO PLAY-------------------------------------------------------------+
+              |  To play hangman is very simple. The aim of the hangman game             |
+              |  is for a player to guess all the letter in a randomly selected          | 
+              |  hidden word in as few guesses as possible to stop the hangman           |
+              |  from being hanged. When a player starts a new game, the word is         |
+              |  displayed to the player as a series of underscores to represent         |
+              |  the hidden letters of the word. The player selects letters they         |
+              |  think are in the word. When they select a letter that is in the word,   |
+              |  all instances of that letter are displayed in place of the underscores. |
+              |  When the player selects a letter that is not in the word, it brings     |
+              |  the hangman closer to his end, as shown in the hangman image.           |
+              |  If the player completes the word by selecting all its letters before    |
+              |  the hangman is hanged, then the player has succeeded.                   |
+              |  However if the hangman dies before the player completes the word, then  |
+              |  the player has failed.                                                  |
+              +--------------------------------------------------------------------------+
+              
+              """ + style.END
+              )
+            while True:
+                return_key = input("Press R to return to the main menu: \n").upper()
+                if return_key == "R":
+                    clear()
+                    logo()
+                    game_menu()
+                    break
+                else:
+                    print(style.RED + "Invalid input" + style.END)
         elif game_choice == "3":
             clear()
-            print("Sorry to see you go. Come back soon!")
+            print("Sorry to see you go.".center(60))
+            time.sleep(1)
+            print("Come back soon!".center(60))
             exit()
         else:
             clear()
-            print("Invalid input, please choose between 1 - 3")
-            print("1. Play \n2. Hangman Rules \n3. Exit")
+            print(style.RED + "Invalid input" + style.END)
+            print("Please choose between 1 - 3.\n".center(60))
+            print("1. Play".center(60))
+            print("2. How To Play".center(60))
+            print("3. Exit".center(60))
+            print("\n")
 
 # initial steps to invite in the game
 logo()
@@ -81,12 +117,14 @@ def get_player_name():
     Get player to enter their chosen name.
     """
     while True:
-        print("Great!\n")
+        print("Great!\n".center(60))
         time.sleep(1)
-        name = input("Enter your name: ")
-        print(f"Hello {name}, the game is about to start!\n")
+        print("Before we start, choose a name.".center(60))
+        time.sleep(1)
+        name = input("Enter your name:\n".center(60))
+        print(f"Hello {name}, the game is about to start!\n".center(60))
         time.sleep(2)
-        print("Let's play Hangman! Best of Luck!")
+        print("Let's play Hangman! Best of Luck!".center(60))
         time.sleep(2)
         clear()
         break
@@ -105,8 +143,8 @@ def play(word):
     guessed_letters = []  # list that'll hold the letters that the user guessed
     guessed_words = []  # list that'll hold the words that the user guessed
     tries = 6
-    print(display_hangman(tries))
-    print(word_completion)
+    print(display_hangman(tries).center(60))
+    print(word_completion.center(60))
     print("\n")
 
     # getting user input
@@ -115,7 +153,7 @@ def play(word):
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
                 clear()
-                print("You already guessed the letter", guess)
+                print("You have already guessed the letter", guess)
             elif guess not in word:
                 clear()
                 print(guess, "is not in the word.")
@@ -137,7 +175,7 @@ def play(word):
         elif len(guess) == len(word) and guess.isalpha():
             if guess in guessed_words:
                 clear()
-                print("You already guessed the word", guess)
+                print("You have already guessed the word", guess)
             elif guess != word:
                 clear()
                 print(guess, "is not the word.")
@@ -157,29 +195,65 @@ def play(word):
         print("\n")
     if guessed:
         clear()
-        print("Congrats, you guessed the word! You win!")
+        print("Congrats, you guessed the word! You win!".center(60))
+        time.sleep(1)
+        game_win()
     else:
         clear()
-        print("Sorry, you ran out of tries. The word was " + word + ".")
-        print("Maybe next time!")
+        print("Sorry, you ran out of tries. The word was " + word + ".".center(60))
+        print("Maybe next time!".center(60))
+        game_over()
+        time.sleep(1)
 
+
+def game_win():
+    """
+    Prints the Well Done logo once all letters are guessed
+    """
+    print(style.GREEN +
+          """
+ __        __   _ _   ____                   _ 
+ \ \      / /__| | | |  _ \  ___  _ __   ___| |
+  \ \ /\ / / _ \ | | | | | |/ _ \| '_ \ / _ \ |
+   \ V  V /  __/ | | | |_| | (_) | | | |  __/_|
+    \_/\_/ \___|_|_| |____/ \___/|_| |_|\___(_)
+                                                                                             
+        """ + style.END)
+
+
+def game_over():
+    """
+    Game over logo shown once user loses all their lives
+    """
+    print(style.RED +
+          """
+   ____                         ___                 _ 
+  / ___| __ _ _ __ ___   ___   / _ \__   _____ _ __| |
+ | |  _ / _` | '_ ` _ \ / _ \ | | | \ \ / / _ \ '__| |
+ | |_| | (_| | | | | | |  __/ | |_| |\ V /  __/ |  |_|
+  \____|\__,_|_| |_| |_|\___|  \___/  \_/ \___|_|  (_)
+                                                      
+        """ + style.END)
 
 # code to run the game once
 def main():
     get_player_name()
     word = get_word()
     play(word)
+
 # loop to re-executes the game when the first round ends
-    play_again = input("Do You want to play again? y = yes, n = no \n")
+    play_again = input("Do you want to play again? y = yes, n = no \n".center(60))
     while play_again not in ["y", "n"]:
-        play_again = input("Do You want to play again? y = yes, n = no \n")
+        play_again = input("Do you want to play again? y = yes, n = no \n".center(60))
     if play_again == "y":
         clear()
         word = get_word()
         play(word)
     elif play_again == "n":
         clear()
-        print("Thanks For Playing! We expect you back again!")
+        print("Thanks For Playing!".center(60))
+        time.sleep(1)
+        print("We expect you back again!".center(60))
         exit()
 
 

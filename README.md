@@ -7,7 +7,7 @@
   * [Existing Features:](#existing-features-)
     + [**Home page**:](#--home-page---)
     + [Menu Item 1 **Play**](#menu-item-1---play--)
-    + [Menu Item 2 **Hangman Rules**](#menu-item-2---rules--)
+    + [Menu Item 2 **How To Play**](#menu-item-2---rules--)
     + [Menu Item 3 **Exit**](#menu-item-3---exit--)
   * [Features To Implement:](#features-to-implement-)
     + [Feature 1: ****](#--)
@@ -41,9 +41,9 @@ The live version of the website can be found by clicking [here](https://hangman-
 ### Existing Features:
 #### **Home page**:
 
-<p>Once you are on the **[live site](https://hangman-yc.herokuapp.com/)** first thing you will notice is the welcome message with the title of “hangman” ASCII in star wars style, followed by the game menu with 3 options, allowing the player to choose between start the game, view the game's rules, and exit the game.</p>
+<p>Once you are on the **[live site](https://hangman-yc.herokuapp.com/)** first thing you will notice is the welcome message with the title of “HANGMAN” ASCII, followed by the game menu with 3 options, allowing the player to choose between start the game, view the game's rules, and exit the game.</p>
 
-<img src="assets/images/welcome_page.png" width="700">
+<img src="assets/images/png" width="700">
 
 <br>
 
@@ -90,8 +90,8 @@ The player can also choose to inert a whole word rather than a single letter.
 
 <img src="assets/images/png" width="700">
 
-#### **Menu Item 2:** **Game Rules**
-<p>When the player chooses the Game Rules option, the system will display a text containing the instructions to play this interactive version of the hangman game, and right below that, the game menu will be displayed once again.</p>
+#### **Menu Item 2:** **How To Play**
+<p>When the player chooses the How To Play option, the system will display a text containing the instructions to play this interactive version of the hangman game, and right below that, the game menu will be displayed once again.</p>
 
 <img src="assets/images/png" width="700">
 
@@ -106,7 +106,9 @@ The player can also choose to inert a whole word rather than a single letter.
 
 ## __Features to implement__
 
-There are several ways that the game could be improved, and more functionalities could be added:
+At the moment only the most basic hangman features have been implemented. But there are several ways that the game could be improved, and more functionalities could be added.
+
+* In the future I hope to add more features where players can interact more with the game by adding their own vocabularies for others to use and to keep statistics on their games.
 
 * At the moment, the game is a single-player experience, and no scores are recorded. It could be possible to store the scores in a document, that could then be accessed by different players.
 
@@ -139,9 +141,9 @@ This is a command-line application built purely using **python** as the main pro
 
 - [Lucidhart](https://lucidhart.com/) for creating flowchart
 
-- [Patorjk.com](https://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Type%20Something%20) for creating the cool looking game title at the beginning of the game
+- [Patorjk.com](https://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Type%20Something%20) for creating the cool looking HANGMAN logo at the beginning of the game, and the WELL DONE logo and GAME OVER logo, which are respectively displayed upon winning or losing the game
 
-- [Amiresponsive.com](https://ui.dev/amiresponsive) for generating the mock up
+- [Amiresponsive.com](https://ui.dev/amiresponsive) for generating the mock-up
 
 <br>
 
@@ -219,6 +221,10 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 - Tutor support from Code Institute for helping me out when I got stuck.
 
 - [Stackoverflow](https://stackoverflow.com/) for researching a list of things.
+
+- [GeeksforGeeks](https://www.geeksforgeeks.org/hangman-game-python/) to boost understanding logic.
+
+- Follow this link if you would like to better understand a common conditional statement in Python: **if __name__ == "__main__"**, which I have used at the end of my code. This conditional is used to check whether a python module is being run directly or being imported. (https://www.youtube.com/watch?v=sugvnHA7ElY&list=PLOOi_ijj0anO_Vm7KHHBFkQY1bcxgdQq2&index=8)
 
 - This tutorial by Kylie Ying was useful to understand the thought process of the program. Jump to minute **24:25** for **Hangman**: (https://www.youtube.com/watch?v=8ext9G7xspg&t=1465s)
 
