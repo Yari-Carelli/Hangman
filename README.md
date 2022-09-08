@@ -112,6 +112,10 @@ At the moment only the most basic hangman features have been implemented. But th
 
 * At the moment, the game is a single-player experience, and no scores are recorded. It could be possible to store the scores in a document, that could then be accessed by different players.
 
+* Larger selection of words to be stored ina Google sheet and be integrated via API.
+
+* Scoreboard for the user to view how many games they have won and lost.
+
 * Some modifications to gameplay (house rules) to increase the difficulty level could be implemented, such as limiting guesses on high-frequency consonants and vowels.
 
 * Another alternative is to give the definition of the word; this can be used to facilitate the learning of a foreign language.

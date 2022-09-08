@@ -1,5 +1,5 @@
 import random
-from words import word_list
+from words import WORD_LIST
 from hangman_visual import display_hangman
 import time
 import os
@@ -56,7 +56,6 @@ def game_menu():
     while True:
         game_choice = input("What would you like to do?\n".center(60))
         print("\n")
-
         if game_choice == "1":
             clear()
             break
@@ -89,7 +88,6 @@ def game_menu():
                 if return_key == "R":
                     clear()
                     logo()
-                    game_menu()
                     break
                 else:
                     print(style.RED + "Invalid input" + style.END)
@@ -108,9 +106,6 @@ def game_menu():
             print("3. Exit".center(60))
             print("\n")
 
-# initial steps to invite in the game
-logo()
-game_menu()
 
 def get_player_name():
     """
@@ -130,10 +125,9 @@ def get_player_name():
         break
     
 
-
 def get_word():
     # this function returns a random string from the passed list of strings
-    word = random.choice(word_list)
+    word = random.choice(WORD_LIST)
     return word.upper()
 
 
@@ -143,8 +137,8 @@ def play(word):
     guessed_letters = []  # list that'll hold the letters that the user guessed
     guessed_words = []  # list that'll hold the words that the user guessed
     tries = 6
-    print(display_hangman(tries).center(60))
-    print(word_completion.center(60))
+    print(display_hangman(tries))
+    print(word_completion)
     print("\n")
 
     # getting user input
@@ -221,6 +215,7 @@ def game_win():
         """ + style.END)
 
 
+
 def game_over():
     """
     Game over logo shown once user loses all their lives
@@ -237,6 +232,8 @@ def game_over():
 
 # code to run the game once
 def main():
+    logo()
+    game_menu()
     get_player_name()
     word = get_word()
     play(word)

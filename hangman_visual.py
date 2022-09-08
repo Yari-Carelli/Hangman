@@ -1,5 +1,4 @@
-def display_hangman(tries):
-    stages = [  # final state: head, torso, both arms, and both legs
+STAGES = [  # final state: head, torso, both arms, and both legs
                 """
                    --------
                    |      |
@@ -70,4 +69,6 @@ def display_hangman(tries):
                    -
                 """
     ]
-    return stages[tries]
+
+def display_hangman(tries):
+   return STAGES[tries]
