@@ -88,6 +88,12 @@ def game_menu():
                 if return_key == "R":
                     clear()
                     logo()
+                    print("\n")
+                    print("Press 1 - 3 to choose from below options:\n".center(60))
+                    print("1. Play".center(60))
+                    print("2. How To Play".center(60))
+                    print("3. Exit".center(60))
+                    print("\n")
                     break
                 else:
                     print(style.RED + "Invalid input" + style.END)
@@ -229,6 +235,7 @@ def game_over():
   \____|\__,_|_| |_| |_|\___|  \___/  \_/ \___|_|  (_)
                                                       
         """ + style.END)
+
 
 # code to run the game once
 def main():

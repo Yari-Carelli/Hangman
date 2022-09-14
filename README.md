@@ -40,37 +40,36 @@ The live version of the website can be found by clicking [here](https://hangman-
 - As a user, I should be able to run the program.
 - As a user, when running the program, I expect to be invited in the game by displaying a welcome message, the Hangman logo and, below that, the main menu with the three options to choose upon.
 - As a user, I should be able to pick one of the three options of the menu.
-- As a user, I expect to be repeatedly presented with the main menu and asked to choose among the available options, if I input is anyhting other than 1, 2 or 3.
-- As a user, I should be able to start the game if I input 1, and then to enter a name before actually starting the game.
+- As a user, I expect to be repeatedly presented with the main menu and asked to choose among the available options, if I input anyhting other than 1, 2 or 3.
+- As a user, I should be able to start the game if I input 1, and then enter a name before actually starting the game.
 - As a user, I should be able to view the game rules if I input 2, and be redirected to the main menu if I input r; I expect to be repeatedly asked to input r if I input a different character.
 - As a user, I should be able to exit the program if I input 3.
 
 #### **Play the Game**:
 - As a user, I should be able to input a letter or a word as a guess.
-- As a user, I should be able to see the secret word change as the letters are guessed correctly.
-- As a user, I should be able to see the parts of the visual hangman drawn as incorrect guesses are made.
+- As a user, I should be able to see the secret word being revealed as the letters are guessed correctly.
+- As a user, I should be able to see the parts of the visual hangman being drawn as incorrect guesses are made.
 
 #### **Ending or Restarting the Game**:
-- As a user, I should be able to play the game again either I win or lose. To do so, I expect the program to present me with a yes/no binary decision.
-- As a user, upon inputting y, I should be able to see a new secret word displayed by the program, and guess a letter or word.
-- As a user, I should be able to exit the game upon inputting n. 
+- As a user, I should be able to play the game again by inputting y.
+- As a user, I should be able to exit the game by inputting n. 
 
 ##  **Features**
 ### Existing Features:
 #### **Home page**:
 
-<p>Once you are on the **[live site](https://hangman-yc.herokuapp.com/)** first thing you will notice is the welcome message with the title of “HANGMAN” ASCII, followed by the game menu with 3 options, allowing the player to choose between start the game, view the game's rules, and exit the game.</p>
+<p>Once you are on the **[live site](https://hangman-yc.herokuapp.com/)**, first thing you will notice is the welcome message with the logo of **HANGMAN** ASCII, both in blue, followed by the game menu with 3 options, allowing the player to choose between start the game, view the game's rules, and exit the game.</p>
 
 <img src="assets/images/png" width="700">
 
 <br>
 
 #### **Menu Item 1:** **Play**
-<p>When the player chooses the Play option, the system will ask the user to enter a name.</p>
+<p>When the player chooses the **Play** option, the system will ask the user to enter a name.</p>
 
 <img src="assets/images/png" width="700">
 
-Upon entering a name, the program greets the user and wishes them good luck; finally, the word is printed and its length is declared.
+Upon entering a name, the program greets the user and wishes them good luck; finally, the word is printed along with the hangman visul at its beginning stage, and the word's length is declared.
 
 <img src="assets/images/png" width="700">
 
@@ -86,30 +85,44 @@ If the user guesses a letter that they have already guessed, the program prints 
 
 <img src="assets/images/png" width="700">
 
+If the player guesses anything different from a single letter or a word that has the length of the secret word, a **Not a valid input** message is printed.
+
+<img src="assets/images/png" width="700">
+
 Upon finishing the game, either winning or losing, the user will have the choice as to whether or not play again.
 
-If the user runs out of tries, the game is over and the program reveals the secret word; a message to ask the user to play again is also printed.
+If the user runs out of tries, the game is over and the program reveals the secret word; a message, which takes the form of a yes/no binary decision, to ask the user to play again is also printed.
+
+If the user guesses all the letters correctly, they win the game, and a "Well Done" ASCII logo in green is printed.
 
 <img src="assets/images/png" width="700">
 
-If the user guesses all the letters correctly, they win the game; a message to ask the user to play again is printed.
+If the user runs out of guesses before the secret word is fully displayed, and all the stages of the hangman visual are drawn, they lose the game, and a **Game Over** ASCII logo in red is printed.
 
 <img src="assets/images/png" width="700">
 
-Upon the play again message, if the user inputs y, a new secret word is printed and its length is declared.
+Upon the play again message, if the user inputs **y**, a new game starts.
 
 <img src="assets/images/png" width="700">
 
-Upon the play again message, if the user types n, a thank you and goodbye message is printed and the game ends.
+Upon the play again message, if the user types **n**, a thank you and goodbye message is printed and the game ends.
 
 <img src="assets/images/png" width="700">
 
-The player can also choose to inert a whole word rather than a single letter.
+The player can also choose to input a whole word rather than a single letter as a guess. If the player guesses the word correctly, the program works just as if all the letters in the secret word have been correctly guessed; if the guessed word is wrong, the program works just as if the player has guessed an incorrect letter.
 
 <img src="assets/images/png" width="700">
 
 #### **Menu Item 2:** **How To Play**
-<p>When the player chooses the How To Play option, the system will display a text containing the instructions to play this interactive version of the hangman game, and right below that, the game menu will be displayed once again.</p>
+<p>When the player chooses the **How To Play** option, the system will display a yellow box made in ASCII containing a text, also in yellow, with the instructions to play this interactive version of the hangman game, and right below that, the program will prompt the player to input **r** to return to the main menu.</p>
+
+<img src="assets/images/png" width="700">
+
+Upon that, if the player's input is anything different from **r**, an **invalid input** message in red is printed, and the player won't be able to proceed in any way until they input **r**.
+
+<img src="assets/images/png" width="700">
+
+If the player inputs **r**, they are redirected to the main menu, which this time is printed alone, without the game logo.
 
 <img src="assets/images/png" width="700">
 
@@ -125,6 +138,8 @@ The player can also choose to inert a whole word rather than a single letter.
 ## __Features to implement__
 
 At the moment only the most basic hangman features have been implemented. But there are several ways that the game could be improved, and more functionalities could be added.
+
+* As it is now, upon finishing the first game either winning or losing, the program only allows the player to play one more game. The loop to play the game again could be iterated infinitely until the user decides not to play the game again. 
 
 * In the future I hope to add more features where players can interact more with the game by adding their own vocabularies for others to use and to keep statistics on their games.
 
@@ -150,7 +165,10 @@ The program needs to check whether the guessed letter is in the secret word.
 There are two possibilities: the letter is either in the word or not. If the letter is in the secret word, check wheter the player has guessed all the letters and won the game. If the letter is not in the secret word, check whether the hanging man is complete and the player has lost.
 Once the player has won or lost, the program asks them if they want to play again with a new secret word. If the player doesn't want to play again, the program ends. Otherwise, the program continues and thinks up a new secret word.
 The player doesn't guess a letter just once; they keep guessing letters until they win or lose. The dashed arrows in the flowchart show the player can guess again. What if the player guesses the same letter again? Rather than counting this letter again, allow them to guess a different letter.
-If the player guesses the same letter twice, the flowchart leads back to the 'Guess a letter' box.
+If the player guesses the same letter twice, the flowchart leads back to the **Guess a letter** box.
+The player needs to know how they are doing in the game. The program should show them the hanging man drawing and the secret word (with blanks for the letters they haven't guessed yet). These visuals will let them see how close they are to winning or losing the game.
+This information is updated every time the player guesses a letter. I have added a **Show drawing and blanks to player** box to offer the player feedback.
+This flowchart completely maps out the order of everything that can happen in the Hangman game, and it helped me remember everything I needed to code.
 <img src="assets/images/hangman_flowchart.png" width="500">
 
 <br>
@@ -241,9 +259,11 @@ Instructions to run the program from the Terminal or Command Prompt:
 <img src="assets/images/gitpod.png" width="700">
 
 - To start, you need to make sure the command line application you are using has access to your Python installation. To do this, open the command prompt, type **python** and press ‘Enter’. You should see a message that documents the Python version that is being used followed by >>>, which indicates the next code you type will be executed by the Python interpreter.
-- All you need to do is type python3 followed by the script name (run.py): **python3 run.py**
-<img src="assets/images/terminal.png" width="700"> 
+- All you need to do is type **python3** followed by the script name (**run.py**). The command-line to run the program will therefore be:
+`python3 run.py`
+<img src="assets/images/terminal.png" width="700">
 
+To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 If you would like to make a clone of this repository, you can type the following command in your IDE terminal:
 
 - `git clone https://github.com/Yari-Carelli/Hangman`
