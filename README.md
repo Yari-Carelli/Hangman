@@ -139,7 +139,7 @@ If the player inputs **r**, they are redirected to the main menu, which this tim
 
 At the moment only the most basic hangman features have been implemented. But there are several ways that the game could be improved, and more functionalities could be added.
 
-* As it is now, upon finishing the first game either winning or losing, the program only allows the player to play one more game. The loop to play the game again could be iterated infinitely until the user decides not to play the game again. 
+* As it is now, upon finishing the first game either winning or losing, the program only allows the user to play the game one more time. At this regard, the loop which allows the user to play the game again could be infinitely iterated, rather than just once, until the user decides to exit the game. 
 
 * In the future I hope to add more features where players can interact more with the game by adding their own vocabularies for others to use and to keep statistics on their games.
 

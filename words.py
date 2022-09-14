@@ -1,3 +1,7 @@
+"""
+This file holds a list of 2520 words to use for the game.
+"""
+
 WORD_LIST = [
     "aback",
     "abaft",
