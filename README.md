@@ -240,7 +240,7 @@ words.py
 
 hangman_visual.py
 
-<img src="assets/images/pep8-run-py.png" width="700">
+<img src="assets/images/pep8-hangman_visual.py.png" width="700">
 
 <br>
 
