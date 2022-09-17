@@ -3,17 +3,17 @@
 <img src="assets/images/mock_up.png" width="700">
 
 - [**Overview**](#--overview--)
-  * [Program Structure](#--program-structure--)
+  * [**Program Structure**](#--program-structure--)
 - [**User Stories**](#--user-stories--)
 - [**Features**](#--features--)
-  * [Existing Features:](#existing-features-)
+  * [**Existing Features:**](#existing-features-)
     + [Home page:](#--home-page--)
     + [Menu Item 1: Play](#menu-item-1---play--)
     + [Menu Item 2: How To Play](#menu-item-2---rules--)
     + [Menu Item 3: Exit](#menu-item-3---exit--)
-  * [Features To Implement:](#features-to-implement-)
+  * [**Features To Implement:**](#features-to-implement-)
 - [**Game Logic**](#--game-logic--)
-  * [Flowchart](#flowchart)
+  * [**Flowchart**](#flowchart)
 - [**Data Model**](#--data-model--)
 - [**Technologies Used**](#--technologies-used--)
   * [**Language**](#--language--)
@@ -45,7 +45,7 @@ The Hangman program randomly selects a secret word for the player to guess from 
 Line 152 of the run.py file defines the **get_word** function. This function randomly chooses a secret word from the list in **word_list** in the words.py file.
 
 #### **Displaying the board and the secret word with blanks to the player**
-Next, I need a function to rpint the hangman board on the screen. It should also display how many letters the player has correctly (and incorrectly) guessed. The **play(word)** function (line 164 of the run.py file) displays the board and the missed letters, and crrates the string of the secret word with all of the not-yet-guessed letters as blanks. I can use the underscore character (_) for this. First, I create a string with nothing but one underscore for eache letter in the secret word. Line 170 of the run.py file defines the **word_completion** variable full of underscores using string replication. Remember that the * operator can be used on a string and an integer, so, for example, the expression "_" * 4 evaluates to "____". This will ensure the 'word_completion' has the same number of underscores as 'word' has letters.
+Next, I need a function to rpint the hangman board on the screen. It should also display how many letters the player has correctly (and incorrectly) guessed. The **play(word)** function (line 164 of the run.py file) displays the board and the missed letters, and crrates the string of the secret word with all of the not-yet-guessed letters as blanks. I can use the underscore character (_) for this. First, I create a string with nothing but one underscore for eache letter in the secret word. Line 170 of the run.py file defines the **word_completion** variable full of underscores using string replication. This will ensure the 'word_completion' has the same number of underscores as 'word' has letters.
 
 #### **Getting the player's guess**
 Line 200 of the run.py file: because Python is case-sensitive, I need to make sure the player's guess is an uppercase letter (or a word in uppercase letters) so I can check it against the secret word. That is where the **upper()** method comes in. Now, even if the player enters a lowercase letter as a guess, the play(word) function returns an uppercase letter.
