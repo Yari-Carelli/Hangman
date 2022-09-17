@@ -45,7 +45,7 @@ def logo():
     print(
         style.BLUE +
         """
-    Welcome to\n
+        Welcome to\n
                                                             +---+
 .-. .-.  .--.  .-. .-. .---. .-.   .-.  .--.  .-. .-.       |   |
 | {_} | / {} \ |  `| |/   __}|  `.'  | / {} \ |  `| |       O   |
@@ -53,8 +53,8 @@ def logo():
 `-' `-'`-'  `-'`-' `-' `---' `-' ` `-'`-'  `-'`-' `-'      / \  |
                                                                 |
                                                          =========
-    by Yari Carelli
-    """ + style.END)
+        by Yari Carelli
+        """ + style.END)
 
 """
 This function gives the player 3 different options to choose from: play, rules,
@@ -78,25 +78,24 @@ def game_menu():
         elif game_choice == "2":
             clear()
             print(
-                style.YELLOW +
-                """
-+--HOW TO PLAY-------------------------------------------------------------+
-|  To play hangman is very simple. The aim of the hangman game             |
-|  is for a player to guess all the letter in a randomly selected          |
-|  hidden word in as few guesses as possible to stop the hangman           |
-|  from being hanged. When a player starts a new game, the word is         |
-|  displayed to the player as a series of underscores to represent         |
-|  the hidden letters of the word. The player selects letters they         |
-|  think are in the word. When they select a letter that is in the word,   |
-|  all instances of that letter are displayed in place of the underscores. |
-|  When the player selects a letter that is not in the word, it brings     |
-|  the hangman closer to his end, as shown in the hangman image.           |
-|  If the player completes the word by selecting all its letters before    |
-|  the hangman is hanged, then the player has succeeded.                   |
-|  However if the hangman dies before the player completes the word, then  |
-|  the player has failed.                                                  |
-+--------------------------------------------------------------------------+
-              """ + style.END
+                style.YELLOW + """
+            +--HOW TO PLAY----------------------------------------------------+
+            | To play hangman is very simple. The aim of the hangman game is  |
+            | for a player to guess all the letter in a randomly selected     |
+            | hidden word in as few guesses as possible to stop the hangman   |
+            | from being hanged. When a player starts a new game, the word is |
+            | displayed to the player as a series of underscores to represent |
+            | the hidden letters of the word. The player selects letters they |
+            | think are in the word. When they select a letter that is in the |
+            | word, all instances of that letter are displayed in place of    |
+            | the underscores. When the player selects a letter that is not   |
+            | in the word, it brings the hangman closer to his end, as shown  |
+            | in the hangman image. If the player completes the word by       |
+            | selecting all its letters before the hangman is hanged, then    |
+            | the player has succeeded. However if the hangman dies before    |
+            | the player completes the word, then the player has failed.      |
+            +-----------------------------------------------------------------+
+            """ + style.END
               )
         while True:
             return_key = input("Press R to return to the main menu:\n").upper()
@@ -226,19 +225,19 @@ while not guessed and tries > 0:  # conditions for the while loop
         if guess in guessed_letters:
             clear()
             print("You have already guessed the letter", guess)
-            elif guess not in word:
-                clear()
-                print(guess, "is not in the word.")
-                """
-                Here I will also decrement the number of tries by 1 since the
-                user made an incorrect guess.
-                """
-                tries -= 1
-                guessed_letters.append(guess)
-        """
-        The only remaining possibility is that the user made a correct
-        letter guess, so I will make the following else block.
-        """
+        elif guess not in word:
+            clear()
+            print(guess, "is not in the word.")
+            """
+            Here I will also decrement the number of tries by 1 since the
+            user made an incorrect guess.
+            """
+            tries -= 1
+            guessed_letters.append(guess)
+            """
+            The only remaining possibility is that the user made a correct
+            letter guess, so I will make the following else block.
+            """
         else:
             clear()
             print("Good job,", guess, "is in the word!")
@@ -278,13 +277,13 @@ while not guessed and tries > 0:  # conditions for the while loop
             """
             if "_" not in word_completion:
                 guessed = True
-        elif len(guess) == len(word) and guess.isalpha():
-            """
-            Now, let's move on to the conditional for guessing a word.
-            Similarly to guessing a letter, I need another conditional block
-            inside of the if statement checking if the word has already
-            been guessed, is correct, or is incorrect.
-            """
+            elif len(guess) == len(word) and guess.isalpha():
+                """
+                Now, let's move on to the conditional for guessing a word.
+                Similarly to guessing a letter, I need another conditional
+                block inside of the if statement checking if the word has
+                already been guessed, is correct, or is incorrect.
+                """
             if guess in guessed_words:
                 clear()
                 print("You have already guessed the word", guess)
@@ -296,20 +295,21 @@ while not guessed and tries > 0:  # conditions for the while loop
             else:
                 guessed = True
                 word_completion = word
-        # end of while loop
-"""
-Then we will have an else statement that will catch everything else.
-"""
-else:
-    clear()
-    print("Not a valid guess.")
-    """
-    After each guess is handled, I will print the current state of the hangman
-    and the word. I will also print a newline to space out each term.
-    """
-    print(display_hangman(tries))
-    print(word_completion)
-    print("\n")
+                # end of while loop
+        """
+        Then we will have an else statement that will catch everything else.
+        """
+    else:
+        clear()
+        print("Not a valid guess.")
+        """
+        After each guess is handled, I will print the current state of the
+        hangman and the word. I will also print a newline to space out each
+        term.
+        """
+        print(display_hangman(tries))
+        print(word_completion)
+        print("\n")
 """
 After the while loop, let's check whether the user guessed the word correctly
 or ran out of tries.

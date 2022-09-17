@@ -226,6 +226,41 @@ This is a command-line application built purely using **python** as the main pro
 
 ### **Test Cases**
 
+- Step 1: When clicking on the **Run Program** orange button on the top left-hand corner, the screenshot below shows the expected output:
+<img src="assets/images/screenshot1.png" width="700">
+- Step 2.1: When the user inputs 1, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-1.png" width="700">
+- Step 2.2: When the user enters a name, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-2.png" width="700">
+- Step 2.3: When the user inputs a correct letter as a guess, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-3.png" width="700">
+- Step 2.4: When the user inputs an incorrect letter as a guess, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-4.png" width="700">
+- Step 2.5: When the user inputs an invalid character as a guess, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-5.png" width="700">
+- Step 2.6: When the user inputs a letter they have already guessed, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-6.png" width="700">
+- Step 2.7: When the user inputs a valid word as a guess, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-7.png" width="700">
+- Step 2.8: When the user inputs an invalid word as a guess, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-8.png" width="700">
+- Step 2.9: When the user guesses the word correctly, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-9.png" width="700">
+- Step 2.10: When the user runs out of tries, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-10.png" width="700">
+- Step 2.11: When the user inputs 'y' to play the game again, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-11.png" width="700">
+- Step 2.12: When the user inputs 'n' to end the game, the screenshot below shows the expected output:
+<img src="assets/images/screenshot2-12.png" width="700">
+- Step 3.1: When the user inputs 2, the screenshot below shows the expected output:
+<img src="assets/images/screenshot3-1.png" width="700">
+- Step 3.2: When the user inputs 'r', the screenshot below shows the expected output:
+<img src="assets/images/screenshot3-2.png" width="700">
+- Step 3.3: When the user inputs anything different from 'r', the screenshot below shows the expected output:
+<img src="assets/images/screenshot3-3.png" width="700">
+- Step 4: When the user inputs 3, the screenshot below shows the expected output:
+<img src="assets/images/screenshot4.png" width="700">
+
 ### **Code Validation on PEP8**
 * Both the run.py file and the words.py file have passed through the PEP8 Online Validator without any issues.
 As regards as the hangman_visual.py file, checking through the PEP8 Validator resulted in some "trailing whitespace", which have been deliberately ignored as they allow the drawing in ASCII to be fully functional.
@@ -236,11 +271,11 @@ run.py
 
 words.py
 
-<img src="assets/images/pep8-words.png" width="700">
+<img src="assets/images/pep8-words-py.png" width="700">
 
 hangman_visual.py
 
-<img src="assets/images/pep8-hangman_visual.py.png" width="700">
+<img src="assets/images/pep8-hangman_visual-py.png" width="700">
 
 <br>
 
