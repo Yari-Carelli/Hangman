@@ -3,6 +3,7 @@
 <img src="assets/images/mock_up.png" width="700">
 
 - [**Overview**](#--overview--)
+  * [Program Structure](#--program-structure--)
 - [**User Stories**](#--user-stories--)
 - [**Features**](#--features--)
   * [Existing Features:](#existing-features-)
@@ -31,9 +32,32 @@ The word to guess is represented by a row of dashes representing each letter of 
 
 The player guessing the word may, at any time, attempt to guess the whole word. If the word is correct, the game is over and the guesser wins. Otherwise, the program penalizes the guesser by adding an element to the diagram. On the other hand, if the guesser makes enough incorrect guesses to allow the program to complete the diagram, the guesser loses. However, the guesser can also win by guessing all the letters that appear in the word, thereby completing the word, before the diagram is completed.
 
+To create the list of words stored in the **words.py** file, I actually went on Stack Overflow (https://stackoverflow.com/) and I found this very relevant question [https://stackoverflow.com/questions/594273/how-to-pick-a-random-english-word-from-a-list]. If you scroll down a little, there is a JSON file that is linked. When clicking on that and opening the file, there is a very long list of words that we can use for hangman. So I can simply copy and paste this entire list of English words into a python file (in our case, words.py), and I can assign it to the variable **word_list**, which I can use in our hangman game later.
+
 The live version of the website can be found by clicking [here](https://hangman-yc.herokuapp.com/).
 
+### **Program Structure**
+
+#### **Importing the random module**
+The Hangman program randomly selects a secret word for the player to guess from a list of words. The **random module** will provide this ability, so line 17 of the run.py file imports it.
+
+#### **Getting a secret word from the word list**
+Line 152 of the run.py file defines the **get_word** function. This function randomly chooses a secret word from the list in **word_list** in the words.py file.
+
+#### **Displaying the board and the secret word with blanks to the player**
+Next, I need a function to rpint the hangman board on the screen. It should also display how many letters the player has correctly (and incorrectly) guessed. The **play(word)** function (line 164 of the run.py file) displays the board and the missed letters, and crrates the string of the secret word with all of the not-yet-guessed letters as blanks. I can use the underscore character (_) for this. First, I create a string with nothing but one underscore for eache letter in the secret word. Line 170 of the run.py file defines the **word_completion** variable full of underscores using string replication. Remember that the * operator can be used on a string and an integer, so, for example, the expression "_" * 4 evaluates to "____". This will ensure the 'word_completion' has the same number of underscores as 'word' has letters.
+
+#### **Getting the player's guess**
+Line 200 of the run.py file: because Python is case-sensitive, I need to make sure the player's guess is an uppercase letter (or a word in uppercase letters) so I can check it against the secret word. That is where the **upper()** method comes in. Now, even if the player enters a lowercase letter as a guess, the play(word) function returns an uppercase letter.
+
+#### **Leaving the while loop**
+Line 193's while loop of the run.py file will keep asking the player for a letter or word until theu enter a single letter or word that hasn't been guessed previously (in case the guess is a word, it must also match the length of the secret word). The code inside the loop also makes sure the player entered  valid guess: a letter or word that has not yet been guessed. If they didn't, the execution will loop back and ask them for a letter or word again.
+
+#### **Asking the player to play again**
+The point of line 361's loop of the run.py file is to let the player enter yes or no to tell the program if they want to play another round of Hangman or not. The player should be able to type 'y' in order to mean "yes" or 'n' to mean "no".
+
 ------
+
 ##  **User Stories**
 
 #### **Main menu**:
@@ -52,7 +76,9 @@ The live version of the website can be found by clicking [here](https://hangman-
 
 #### **Ending or Restarting the Game**:
 - As a user, I should be able to play the game again by inputting y.
-- As a user, I should be able to exit the game by inputting n. 
+- As a user, I should be able to exit the game by inputting n.
+
+------
 
 ##  **Features**
 ### Existing Features:
@@ -202,6 +228,7 @@ This is a command-line application built purely using **python** as the main pro
 
 ### **Code Validation on PEP8**
 * Both the run.py file and the words.py file have passed through the PEP8 Online Validator without any issues.
+As regards as the hangman_visual.py file, checking through the PEP8 Validator resulted in some "trailing whitespace", which have been deliberately ignored as they allow the drawing in ASCII to be fully functional.
 
 run.py
 
@@ -210,6 +237,10 @@ run.py
 words.py
 
 <img src="assets/images/pep8-words.png" width="700">
+
+hangman_visual.py
+
+<img src="assets/images/pep8-run-py.png" width="700">
 
 <br>
 

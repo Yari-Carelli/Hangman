@@ -4,7 +4,7 @@ this includes the initial empty state, as well as the other stages, and I
 have stored them in a list outside the display_hangman function.
 Each stage corresponds to a number of tries the player has left.
 I will be using this to display the current stage of hangman at each turn in
-the command prompt. 
+the command prompt.
 """
 
 STAGES = [  # final state: head, torso, both arms, and both legs
@@ -78,6 +78,7 @@ STAGES = [  # final state: head, torso, both arms, and both legs
                    -
                 """
     ]
+
 
 def display_hangman(tries):
    return STAGES[tries]
