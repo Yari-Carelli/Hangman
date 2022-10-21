@@ -281,7 +281,7 @@ hangman_visual.py
 
 ------
 
-## __Bugs__
+## **Bugs**
 
 * To the best of my knowledge, no bugs exist in the website in its current state.
 

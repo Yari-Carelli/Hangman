@@ -4,6 +4,7 @@ from hangman_visual import display_hangman
 import time
 import os
 
+
 """
 This is a simple command-line game.
 It allows for user input and it also outputs a visual of the current hangman
@@ -11,16 +12,16 @@ alongside the word that is being guessed at every turn.
 This python file contains all of the code to run the program.
 
 I have previously created a file containing a list of several hundreds
-words, so I am just going to import that list into this file.
+words, so I am just going to import that list into this file (line 1).
 
 Then, I want to randomly choose a word from this list, so let's also
-import the random library.
+import the random library (line 2).
 
 The 'clear()' function is to clear the terminal: it uses
 the 'cls' statement if on Windows, otherwise (Linux or Mac)
-it uses the 'clear' statement.
+it uses the 'clear' statement (lines 129 -130).
 
-The 'logo()' function prints the Hangman logo for the game.
+The 'logo()' function prints the Hangman logo for the game (lines 133 - 146).
 
 The 'game_menu()' function gives the player 3 different options to choose from: play, rules,
 exit.
@@ -28,8 +29,8 @@ exit.
 The 'get_player_name()' functions allows the player to enter their chosen name.
 
 I need to define a function which will return a word for our game.
-For the 'get_word()' function, I can either create a list of words or I can import
-a list of words for the program to choose from.
+For the 'get_word()' function, I can either create a list of words or I can
+import a list of words for the program to choose from.
 This function returns a random string from the passed list of strings.
 
 The 'play(word)' function is defined for the actual interactive gameplay.
@@ -39,18 +40,18 @@ turn.
 
 Let's represent unguessed letters as underscores and then show the letters
 as correct guesses are made. The string of the 'word_completion' variable will
-be the same length as the chosen word. It will initially contain only underscores.
-The variable 'tries' variable represents the number of tries; this corresponds to the
-number of body parts left to be drawn on the hangman before the user loses
-(counting the head, body, arms and both legs this will be 6).
+be the same length as the chosen word. It will initially contain only
+underscores. The variable 'tries' variable represents the number of tries; this
+corresponds to the number of body parts left to be drawn on the hangman before
+the user loses (counting the head, body, arms and both legs this will be 6).
 After initializing all the variables, let's print some initial output to
 help guide the user when the game starts.
 
 The main chunk of our code will be encompassed in a while loop, which will
 run until either the word is guessed or the user runs out of tries.
 Since each iteration of the loop corresponds to a turn by the user, I will
-first prompt the user for a guess and store the guess in a variable, called 'guess'.
-I will also make sure to cast this to uppercase.
+first prompt the user for a guess and store the guess in a variable, called
+'guess'. I will also make sure to cast this to uppercase.
 I will beconverting all user input to uppercase to make our comparison logic
 simpler, so the word is printed in all uppercase for the user to read.
 
@@ -239,66 +240,56 @@ def play(word):
     print(display_hangman(tries))  # prints the initial state of hangman
     print(word_completion)  # prints the initial state of the word with all (_)
     print("\n")  # new line
-
-# getting user input
-while not guessed and tries > 0:  # conditions for the while loop
-    guess = input("Please guess a letter or word: ").upper()
-# checks whether the user guessed the word correctly or ran out of tries
-    if len(guess) == 1 and guess.isalpha():
-        if guess in guessed_letters:
-            clear()
-            print("You have already guessed the letter", guess)
-        elif guess not in word:
-            clear()
-            print(guess, "is not in the word.")
-            tries -= 1
-            guessed_letters.append(guess)
+    while not guessed and tries > 0:  # conditions for the while loop
+        guess = input("Please guess a letter or word: ").upper()
+        if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters:
+                clear()
+                print("You have already guessed the letter", guess)
+            elif guess not in word:
+                clear()
+                print(guess, "is not in the word.")
+                tries -= 1
+                guessed_letters.append(guess)
+            else:
+                clear()
+                print("Good job,", guess, "is in the word!")
+                word_as_list = list(word_completion)
+                indices = [i for i, letter in enumerate(word) if letter == guess]
+                for index in indices:
+                    word_as_list[index] = guess
+                word_completion = "".join(word_as_list)
+                if "_" not in word_completion:
+                    guessed = True
+        elif len(guess) == len(word) and guess.isalpha():
+            if guess in guessed_words:
+                clear()
+                print("You have already guessed the word", guess)
+            elif guess != word:
+                clear()
+                print(guess, "is not the word.")
+                tries -= 1
+                guessed_words.append(guess)
+            else:
+                guessed = True
+                word_completion = word
         else:
             clear()
-            print("Good job,", guess, "is in the word!")
-            guessed_letters.append(guess)
-            
-        word_as_list = list(word_completion)
-        indices = [
-            i for i, letter in enumerate(word) if letter == guess]
-        for index in indices:
-                word_as_list[index] = guess
-                word_completion = "".join(word_as_list)
-        if "_" not in word_completion:
-                guessed = True
-        elif len(guess) == len(word) and guess.isalpha():
-                if guess in guessed_words:
-                    clear()
-                    print("You have already guessed the word", guess)
-                elif guess != word:
-                    clear()
-                    print(guess, "is not the word.")
-                    tries -= 1
-                    guessed_words.append(guess)
-                else:
-                    guessed = True
-                    word_completion = word
-    else:
-        clear()
-        print("Not a valid guess.")
+            print("Not a valid guess.")
         print(display_hangman(tries))
         print(word_completion)
         print("\n")
-# end of while loop
-
-if guessed:
-    clear()
-    print("Congrats, you guessed the word! You win!".center(60))
-    time.sleep(1)
-    game_win()
-else:
-    clear()
-    print("Sorry, you ran out of tries.".center(60))
-    time.sleep(1)
-    print("The word was " + word + ".".center(60))
-    time.sleep(1)
-    print("Maybe next time!".center(60))
-    game_over()
+    if guessed:
+        clear()
+        print("Congrats, you guessed the word! You win!".center(60))
+        game_win()
+    else:
+        clear()
+        print("Sorry, you ran out of tries.".center(60))
+        time.sleep(1)
+        print(("The word was " + word + ".").center(60))
+        print("Maybe next time!".center(60))
+        game_over()
 
 
 def game_win():
@@ -320,10 +311,7 @@ def game_over():
  | |_| | (_| | | | | | |  __/ | |_| |\ V /  __/ |  |_|
   \____|\__,_|_| |_| |_|\___|  \___/  \_/ \___|_|  (_)
   """ + style.END)
-
-
-# code to run the game once
-
+        
 
 def main():
     logo()
@@ -331,21 +319,21 @@ def main():
     get_player_name()
     word = get_word()
     play(word)
-
-# loop to re-execute the game when the first round ends
-play_again = input("Do you want to play again? y = yes, n = no \n".center(60))
-while play_again not in ["y", "n"]:
-    play_again = input("Play again? y = yes, n = no \n".center(60))
-if play_again == "y":
-    clear()
-    word = get_word()
-    play(word)
-elif play_again == "n":
-    clear()
-    print("Thanks For Playing!".center(60))
-    time.sleep(1)
-    print("We expect you back again!".center(60))
-    exit()
+    while True:
+        play_again = input("Play Again? y = yes, n = no \n".center(60))
+        if play_again == "y":
+            clear()
+            word = get_word()
+            play(word)
+        elif play_again == "n":
+            clear()
+            print("Thanks For Playing!".center(60))
+            time.sleep(1)
+            print("We expect you back again!".center(60))
+            exit()
+        else:
+            clear()
+            print(style.RED + "Invalid input" + style.END)
 
 
 if __name__ == "__main__":

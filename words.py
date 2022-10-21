@@ -1648,7 +1648,7 @@ WORD_LIST = [
     "proud",
     "provide",
     "psychedelic",
-    "psychiatrist"
+    "psychiatrist",
     "psychotic",
     "pterodactyl",
     "public",
