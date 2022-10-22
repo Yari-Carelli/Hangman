@@ -1,6 +1,6 @@
-# **[Hangman](https://hangman-yc.herokuapp.com/)**
+# **Hangman**
 
-<img src="assets/images/mock_up.png" width="700">
+#
 
 - [**Overview**](#--overview--)
   * [**Program Structure**](#--program-structure--)
@@ -18,12 +18,9 @@
 - [**Technologies Used**](#--technologies-used--)
   * [**Language**](#--language--)
   * [**Tools**](#--tools--)
-- [**Testing**](#--testing--)
-  * [**Code Validation on PEP8**](#--code-validation-on-pep8--)
-  * [**Bugs**](#--bugs--)
-- [**Deployment**](#--deployment--)
-- [**Credits**](#--credits--)
-- [**Acknowledgments**](#--acknowledgments--)
+- [**Bugs**](#--bugs--)
+
+#
 
 ##  **Overview**
 
@@ -32,9 +29,12 @@ The word to guess is represented by a row of dashes representing each letter of 
 
 The player guessing the word may, at any time, attempt to guess the whole word. If the word is correct, the game is over and the guesser wins. Otherwise, the program penalizes the guesser by adding an element to the diagram. On the other hand, if the guesser makes enough incorrect guesses to allow the program to complete the diagram, the guesser loses. However, the guesser can also win by guessing all the letters that appear in the word, thereby completing the word, before the diagram is completed.
 
-To create the list of words stored in the **words.py** file, I actually went on Stack Overflow (https://stackoverflow.com/) and I found this very relevant question [https://stackoverflow.com/questions/594273/how-to-pick-a-random-english-word-from-a-list]. If you scroll down a little, there is a JSON file that is linked. When clicking on that and opening the file, there is a very long list of words that we can use for hangman. So I can simply copy and paste this entire list of English words into a python file (in our case, words.py), and I can assign it to the variable **word_list**, which I can use in our hangman game later.
+To create the list of words stored in the **words.py** file, I actually went on Stack Overflow (https://stackoverflow.com/) and I found this very relevant question [https://stackoverflow.com/questions/594273/how-to-pick-a-random-english-word-from-a-list]. If you scroll down a little, there is a JSON file that is linked. When clicking on that and opening the file, there is a very long list of words that we can use for hangman. So I can simply copy and paste this entire list of English words into a python file 
+(in our case, words.py), and I can assign it to the variable **word_list**, which I can use in our hangman game later.
 
-The live version of the website can be found by clicking [here](https://hangman-yc.herokuapp.com/).
+#
+No live version of the program exists at the moment.
+#
 
 ### **Program Structure**
 
@@ -54,7 +54,7 @@ Line 200 of the run.py file: because Python is case-sensitive, I need to make su
 Line 193's while loop of the run.py file will keep asking the player for a letter or word until theu enter a single letter or word that hasn't been guessed previously (in case the guess is a word, it must also match the length of the secret word). The code inside the loop also makes sure the player entered  valid guess: a letter or word that has not yet been guessed. If they didn't, the execution will loop back and ask them for a letter or word again.
 
 #### **Asking the player to play again**
-The point of line 361's loop of the run.py file is to let the player enter yes or no to tell the program if they want to play another round of Hangman or not. The player should be able to type 'y' in order to mean "yes" or 'n' to mean "no".
+The point of line 361's loop of the run.py file is to let the player enter yes or no to tell the program if they want to play another round of Hangman or not. The player should be able to type 'y' to mean "yes" or 'n' to mean "no".
 
 ------
 
@@ -86,34 +86,20 @@ The point of line 361's loop of the run.py file is to let the player enter yes o
 
 <p>Once you are on the **[live site](https://hangman-yc.herokuapp.com/)**, first thing you will notice is the welcome message with the logo of **HANGMAN** ASCII, both in blue, followed by the game menu with 3 options, allowing the player to choose between start the game, view the game's rules, and exit the game.</p>
 
-<img src="assets/images/png" width="700">
-
 <br>
 
 #### **Menu Item 1:** **Play**
 <p>When the player chooses the **Play** option, the system will ask the user to enter a name.</p>
 
-<img src="assets/images/png" width="700">
-
 Upon entering a name, the program greets the user and wishes them good luck; finally, the word is printed along with the hangman visul at its beginning stage, and the word's length is declared.
-
-<img src="assets/images/png" width="700">
 
 Once the user guesses a letter, if the guessed letter is in the word, the program prints a message to inform them and writes the letter in all its correct positions.
 
-<img src="assets/images/png" width="700">
-
 If the guessed letter is not in the word, the program prints a message to inform them and draws one element of the hangman visual.
-
-<img src="assets/images/png" width="700">
 
 If the user guesses a letter that they have already guessed, the program prints a message to inform them, while asking them to make a different guess.
 
-<img src="assets/images/png" width="700">
-
 If the player guesses anything different from a single letter or a word that has the length of the secret word, a **Not a valid input** message is printed.
-
-<img src="assets/images/png" width="700">
 
 Upon finishing the game, either winning or losing, the user will have the choice as to whether or not play again.
 
@@ -121,47 +107,29 @@ If the user runs out of tries, the game is over and the program reveals the secr
 
 If the user guesses all the letters correctly, they win the game, and a "Well Done" ASCII logo in green is printed.
 
-<img src="assets/images/png" width="700">
-
 If the user runs out of guesses before the secret word is fully displayed, and all the stages of the hangman visual are drawn, they lose the game, and a **Game Over** ASCII logo in red is printed.
-
-<img src="assets/images/png" width="700">
 
 Upon the play again message, if the user inputs **y**, a new game starts.
 
-<img src="assets/images/png" width="700">
-
 Upon the play again message, if the user types **n**, a thank you and goodbye message is printed and the game ends.
 
-<img src="assets/images/png" width="700">
-
 The player can also choose to input a whole word rather than a single letter as a guess. If the player guesses the word correctly, the program works just as if all the letters in the secret word have been correctly guessed; if the guessed word is wrong, the program works just as if the player has guessed an incorrect letter.
-
-<img src="assets/images/png" width="700">
 
 #### **Menu Item 2:** **How To Play**
 <p>When the player chooses the **How To Play** option, the system will display a yellow box made in ASCII containing a text, also in yellow, with the instructions to play this interactive version of the hangman game, and right below that, the program will prompt the player to input **r** to return to the main menu.</p>
 
-<img src="assets/images/png" width="700">
-
 Upon that, if the player's input is anything different from **r**, an **invalid input** message in red is printed, and the player won't be able to proceed in any way until they input **r**.
-
-<img src="assets/images/png" width="700">
 
 If the player inputs **r**, they are redirected to the main menu, which this time is printed alone, without the game logo.
 
-<img src="assets/images/png" width="700">
-
 #### **Menu Item 3:** **Exit**
 <p>When the player chooses the Exit option, the system will display a goodbye message, and end. You need to click on the “Run Program” button on the top left of the screen to reactivate the program.</p>
-
-<img src="assets/images/png" width="700">
 
 <br>
 
 ------
 
-## __Features to implement__
+## **Features to implement**
 
 At the moment only the most basic hangman features have been implemented. But there are several ways that the game could be improved, and more functionalities could be added.
 
@@ -194,8 +162,8 @@ The player doesn't guess a letter just once; they keep guessing letters until th
 If the player guesses the same letter twice, the flowchart leads back to the **Guess a letter** box.
 The player needs to know how they are doing in the game. The program should show them the hanging man drawing and the secret word (with blanks for the letters they haven't guessed yet). These visuals will let them see how close they are to winning or losing the game.
 This information is updated every time the player guesses a letter. I have added a **Show drawing and blanks to player** box to offer the player feedback.
-This flowchart completely maps out the order of everything that can happen in the Hangman game, and it helped me remember everything I needed to code.
-<img src="assets/images/hangman_flowchart.png" width="500">
+This flowchart completely maps out the order of everything that can happen in the Hangman game, and it helped me remember everything I needed to code.<br>
+<img src="assets/images/hangman_flowchart.png" width="300">
 
 <br>
 
@@ -208,74 +176,13 @@ This is a command-line application built purely using **python** as the main pro
 ### **Tools**
 - [Github](https://github.com/) for store and version control of the code
 
-- [Gitpod](https://gitpod.io/workspaces) for editing code
+- [Gitpod](https://gitpod.io/workspaces) for editing the code
 
 - [Heroku](https://heroku.com/) for deployment
 
-- [Lucidhart](https://lucidhart.com/) for creating flowchart
+- [Lucidhart](https://lucidhart.com/) for creating the flowchart
 
 - [Patorjk.com](https://patorjk.com/software/taag/#p=display&f=Star%20Wars&t=Type%20Something%20) for creating the cool looking HANGMAN logo at the beginning of the game, and the WELL DONE logo and GAME OVER logo, which are respectively displayed upon winning or losing the game
-
-- [Amiresponsive.com](https://ui.dev/amiresponsive) for generating the mock-up
-
-<br>
-
-------
-
-## **Testing**
-
-### **Test Cases**
-
-- Step 1: When clicking on the **Run Program** orange button on the top left-hand corner, the screenshot below shows the expected output:
-<img src="assets/images/screenshot1.png" width="700">
-- Step 2.1: When the user inputs 1, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-1.png" width="700">
-- Step 2.2: When the user enters a name, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-2.png" width="700">
-- Step 2.3: When the user inputs a correct letter as a guess, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-3.png" width="700">
-- Step 2.4: When the user inputs an incorrect letter as a guess, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-4.png" width="700">
-- Step 2.5: When the user inputs an invalid character as a guess, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-5.png" width="700">
-- Step 2.6: When the user inputs a letter they have already guessed, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-6.png" width="700">
-- Step 2.7: When the user inputs a valid word as a guess, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-7.png" width="700">
-- Step 2.8: When the user inputs an invalid word as a guess, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-8.png" width="700">
-- Step 2.9: When the user guesses the word correctly, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-9.png" width="700">
-- Step 2.10: When the user runs out of tries, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-10.png" width="700">
-- Step 2.11: When the user inputs 'y' to play the game again, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-11.png" width="700">
-- Step 2.12: When the user inputs 'n' to end the game, the screenshot below shows the expected output:
-<img src="assets/images/screenshot2-12.png" width="700">
-- Step 3.1: When the user inputs 2, the screenshot below shows the expected output:
-<img src="assets/images/screenshot3-1.png" width="700">
-- Step 3.2: When the user inputs 'r', the screenshot below shows the expected output:
-<img src="assets/images/screenshot3-2.png" width="700">
-- Step 3.3: When the user inputs anything different from 'r', the screenshot below shows the expected output:
-<img src="assets/images/screenshot3-3.png" width="700">
-- Step 4: When the user inputs 3, the screenshot below shows the expected output:
-<img src="assets/images/screenshot4.png" width="700">
-
-### **Code Validation on PEP8**
-* Both the run.py file and the words.py file have passed through the PEP8 Online Validator without any issues.
-As regards as the hangman_visual.py file, checking through the PEP8 Validator resulted in some "trailing whitespace", which have been deliberately ignored as they allow the drawing in ASCII to be fully functional.
-
-run.py
-
-<img src="assets/images/pep8-run-py.png" width="700">
-
-words.py
-
-<img src="assets/images/pep8-words-py.png" width="700">
-
-hangman_visual.py
-
-<img src="assets/images/pep8-hangman_visual-py.png" width="700">
 
 <br>
 
@@ -318,16 +225,14 @@ This application has been deployed to Heroku. The deployment process is describe
 
 ------
 
-## __Local Deployment__
+## **Local Deployment**
 
 Instructions to run the program from the Terminal or Command Prompt:
-- Open the repository in Gitpod by clicking on the **green button** on the top right-hand of the screen:
-<img src="assets/images/gitpod.png" width="700">
+- Open the repository in Gitpod by clicking on the **green button** on the top right-hand of the screen
 
 - To start, you need to make sure the command line application you are using has access to your Python installation. To do this, open the command prompt, type **python** and press ‘Enter’. You should see a message that documents the Python version that is being used followed by >>>, which indicates the next code you type will be executed by the Python interpreter.
 - All you need to do is type **python3** followed by the script name (**run.py**). The command-line to run the program will therefore be:
 `python3 run.py`
-<img src="assets/images/terminal.png" width="700">
 
 To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 If you would like to make a clone of this repository, you can type the following command in your IDE terminal:
@@ -337,34 +242,3 @@ If you would like to make a clone of this repository, you can type the following
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Yari-Carelli/Hangman)
-
-<br>
-
-------
-
-## **Credits**
-
-- Tutor support from Code Institute for helping me out when I got stuck.
-
-- [Stackoverflow](https://stackoverflow.com/) for researching a list of things.
-
-- [GeeksforGeeks](https://www.geeksforgeeks.org/hangman-game-python/) to boost understanding logic.
-
-- Follow this link if you would like to better understand a common conditional statement in Python: **if __name__ == "__main__"**, which I have used at the end of my code. This conditional is used to check whether a python module is being run directly or being imported. (https://www.youtube.com/watch?v=sugvnHA7ElY&list=PLOOi_ijj0anO_Vm7KHHBFkQY1bcxgdQq2&index=8)
-
-- This tutorial by Kylie Ying was useful to understand the thought process of the program. Jump to minute **24:25** for **Hangman**: (https://www.youtube.com/watch?v=8ext9G7xspg&t=1465s)
-
-Small tip: when deciding to follow a tutorial, go to the end of the tutorial and see the final output, then try coding the whole thing by yourself. It forces you to build the thing from scratch, and when you get stuck, just rewind and see how it they build it.
-
-<br>
-
-------
-
-## **Acknowledgments**
-* I would like to acknowledge the help provided to me by various people and websites, who have rendered the task of making this website easier, and in some cases, possible. In no particular order, I would like to thank:
-   * w3schools.com, whose tutorials on Python were a frequent reference for all matter of questions both large and small;
-   * stackoverflow.com, whose forums provided me with many helpful answers to problems I was experiencing when writing my code, and offered good examples for me to compare my code against;
-   * The Slack community of Code Institute, a consistent source of warmth and encouragement, especially when I felt I was hitting my head against a wall;
-   * The Code Institute tutor system, who were able to gently push me into the right direction when I felt like I had expended my last reserves of patience on some issues;
-   * My mentor Rohit Sharma, who was as wonderful as ever in setting me straight;
-   * And lastly, my friends and family who play-tested the application in its various iterations.
